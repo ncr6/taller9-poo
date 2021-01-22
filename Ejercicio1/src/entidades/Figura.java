@@ -2,7 +2,7 @@ package entidades;
 import javax.swing.JOptionPane;
 
 
-public abstract class Figura {
+public abstract class Figura implements Comparable<Figura> {
     
     //ATRIBUTOS
     
@@ -102,5 +102,15 @@ public abstract class Figura {
     
     public abstract float getArea();
     public abstract float getPerimetro();
+    
+    
+    @Override
+    public int compareTo(Figura otraFig) {
+        if(this.getArea() > otraFig.getArea())
+            return 1;
+        else if (this.getArea() == otraFig.getArea())
+            return 0 ;
+        return -1 ;
+    }
     
 }

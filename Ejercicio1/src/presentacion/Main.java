@@ -161,7 +161,7 @@ public class Main {
                 }
                 
                 case 3 -> {
-                    String mensaje = "Las figuras registradas son:1";
+                    String mensaje = "Las figuras registradas son:\n";
                     
                     int cont = 0;
                     //Contador que envia hasta 3 figuras por JOptionPane
@@ -169,14 +169,15 @@ public class Main {
                     if (arreglo.size() > 0){
                         for (int i=0; i<arreglo.size(); i++){
                             if (cont<3){
-                                mensaje += "\n\nFigura que ocupa la posición " + i;
+                                mensaje += "\n\nFigura que ocupa la posición "
+                                        + i;
                                 mensaje += "\n" + arreglo.get(i).toString();
                                 cont++;
                             } else {
                                 JOptionPane.showMessageDialog(null, mensaje,
                                 "Listado de figuras registradas",1);
                                 mensaje = "\n";
-                                mensaje += "\nFigura que ocupa la posición " + i;
+                                mensaje += "\nFigura que ocupa la posición "+i;
                                 mensaje += arreglo.get(i).toString();
                                 cont = 1;
                             }
