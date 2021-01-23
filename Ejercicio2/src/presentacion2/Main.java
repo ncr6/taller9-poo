@@ -2,9 +2,9 @@ package presentacion2;
 import entidades.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 import static presentacion2.IngresoDatos.*;
-import java.util.Comparator;
 
 public class Main {
     
@@ -90,6 +90,8 @@ public class Main {
         do{
             opcion = menuPrincipal();
             switch (opcion){
+                
+                
                 case 1 -> {
                     int fig = menuSeleccionFigura();
                     switch (fig){
@@ -100,6 +102,8 @@ public class Main {
                         case 5: break;
                     }     
                 }
+                
+                
                 case 2 -> {
                     String nuevoColor = JOptionPane.showInputDialog(null,
                     "Ingrese el color que desee asignar a todas las figuras",
@@ -111,6 +115,8 @@ public class Main {
                     JOptionPane.showMessageDialog(null,"Se cambió el color de"
                     + "todas las figuras con éxito", "Éxito", 1); break;
                 }
+                
+                
                 case 3 -> {
                     int clase = menuSeleccionFigura();
                     String nuevoColor = JOptionPane.showInputDialog(null,
@@ -122,46 +128,119 @@ public class Main {
                                 if (arr.get(i) instanceof Rectangulo){
                                     Figura f = arr.get(i); f.setColor(nuevoColor);
                                     arr.set(i, f);
-                                    JOptionPane.showMessageDialog(null,"Se cambió el color de"
-                                    + " todos los rectángulos con éxito", "Éxito", 1); break;
                                 }
                             }
+                            JOptionPane.showMessageDialog(null,"Se cambió el color de"
+                            + " todos los rectángulos con éxito", "Éxito", 1); break;
                         }
                         case 2 -> {
                             for (int i=0 ; i < arr.size(); i++){
                                 if (arr.get(i) instanceof Cuadrado){
                                     Figura f = arr.get(i); f.setColor(nuevoColor);
-                                    arr.set(i, f);
-                                    JOptionPane.showMessageDialog(null,"Se cambió el color de"
-                                    + " todos los cuadrados con éxito", "Éxito", 1); break;                                    
+                                    arr.set(i, f);                                
                                }
                             }
+                            JOptionPane.showMessageDialog(null,"Se cambió el color de"
+                            + " todos los cuadrados con éxito", "Éxito", 1); break;   
                         }
                         case 3 -> {
                             for (int i=0 ; i < arr.size(); i++){
                                 if (arr.get(i) instanceof Elipse){
                                     Figura f = arr.get(i); f.setColor(nuevoColor);
                                     arr.set(i, f);
-                                    JOptionPane.showMessageDialog(null,"Se cambió el color de"
-                                    + " todos los elipses con éxito", "Éxito", 1); break;                                         
+                                       
                                }
                             }
-                       }
+                            JOptionPane.showMessageDialog(null,"Se cambió el color de"
+                            + " todos los elipses con éxito", "Éxito", 1); break;                              
+                        }
                         case 4 -> {
                             for (int i=0 ; i < arr.size(); i++){
                                 if (arr.get(i) instanceof Circulo){
                                     Figura f = arr.get(i); f.setColor(nuevoColor);
-                                    arr.set(i, f);
-                                    JOptionPane.showMessageDialog(null,"Se cambió el color de"
-                                    + " todos los círculos con éxito", "Éxito", 1); break;                                         
+                                    arr.set(i, f);                                     
                                }
                             }
-                       }
+                            JOptionPane.showMessageDialog(null,"Se cambió el color de"
+                            + " todos los círculos con éxito", "Éxito", 1); break;   
+                        }
                     }                    
                     break;
                 }
-                case 4 -> {}
-                case 5 -> {}              
+                
+                
+                case 4 -> {
+                    int posmv = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese la cantidad de posiciones\nque desea desplazar en"
+                    +" todos los elementos:","Desplazamiento de objetos", 3));
+                    Collections.rotate(arr,posmv);
+                }
+                
+                
+                case 5 -> {
+                    int clase = menuSeleccionFigura();
+                    int moverPos = Integer.parseInt(JOptionPane.showInputDialog(null,
+                    "Ingrese la posición a la que desee mover todas las figuras" +
+                    " de este tipo", "Cambio de posición de tipo de figuras", 3));
+                    
+                    switch (clase){
+                        case 1 -> {
+                            ArrayList<Figura> rect = new ArrayList<>();
+                            for (int i=0 ; i < arr.size(); i++){
+                                if (arr.get(i) instanceof Rectangulo){
+                                    rect.add(arr.get(i)); arr.remove(i);
+                                }
+                            }
+                            for (int i=0 ; i < rect.size(); i++){
+                                arr.add(moverPos, rect.get(i));
+                            }
+                            JOptionPane.showMessageDialog(null,"Se cambió la posición de"
+                            + " todos los rectángulos con éxito", "Éxito", 1); break;
+                        }
+                        case 2 -> {
+                            ArrayList<Figura> cuad = new ArrayList<>();
+                            for (int i=0 ; i < arr.size(); i++){
+                                if (arr.get(i) instanceof Cuadrado){
+                                    cuad.add(arr.get(i)); arr.remove(i);
+                                }
+                            }
+                            for (int i=0 ; i < cuad.size(); i++){
+                                arr.add(moverPos, cuad.get(i));
+                            }
+                            JOptionPane.showMessageDialog(null,"Se cambió la posición de"
+                            + " todos los cuadrados con éxito", "Éxito", 1); break;
+                        }
+                        case 3 -> {
+                            ArrayList<Figura> elip = new ArrayList<>();
+                            for (int i=0 ; i < arr.size(); i++){
+                                if (arr.get(i) instanceof Elipse){
+                                    elip.add(arr.get(i)); arr.remove(i);
+                                }
+                            }
+                            for (int i=0 ; i < elip.size(); i++){
+                                arr.add(moverPos, elip.get(i));
+                            }
+                            JOptionPane.showMessageDialog(null,"Se cambió la posición de"
+                            + " todos los elipses con éxito", "Éxito", 1); break;
+                        }
+                        case 4 -> {
+                            ArrayList<Figura> circ = new ArrayList<>();
+                            for (int i=0 ; i < arr.size(); i++){
+                                if (arr.get(i) instanceof Circulo){
+                                    circ.add(arr.get(i)); arr.remove(i);
+                                }
+                            }
+                            for (int i=0 ; i < circ.size(); i++){
+                                arr.add(moverPos, circ.get(i));
+                            }
+                            JOptionPane.showMessageDialog(null,"Se cambió la posición de"
+                            + " todos los círculos con éxito", "Éxito", 1); break;
+                        }
+                    }                   
+                    break;
+                } 
+                
+                
                 case 6 -> {
                     String mensaje = "Las figuras registradas son:\n";
                     
@@ -195,10 +274,11 @@ public class Main {
                     }
                     break;
                 }
+                
+                
                 case 7 -> {
                     if (arr.size()>0){
-                        Figura[] figuras = new Figura[arr.size()];
-                        
+                        Figura[] figuras = new Figura[arr.size()];                       
                         Arrays.sort(figuras);
                         JOptionPane.showMessageDialog(null, "Figura con la"
                         + " mayor área.\n" + figuras[arr.size()-1],
@@ -209,6 +289,8 @@ public class Main {
                         "Registro vacío", 2);                        
                     } break;
                 }
+                
+                
                 case 8 -> {
                     JOptionPane.showMessageDialog(null,"Gracias por usar este"
                     + " programa.", "Hasta luego", 1); break;

@@ -63,9 +63,9 @@ public class Elipse extends Figura{
       
     @Override
     public String toString() {
-        return super.toString() + "\nRadio Mayor: " + getRadioMayor() +
-               "\nRadio Menor: " + getRadioMenor() + "\nÁrea: "+ getArea()  + 
-               "\nPerímetro: "+ getPerimetro();
+        return super.toString() + "\nTipo: Figura curva." + "\nRadio Mayor: " +
+                getRadioMayor() + "\nRadio Menor: " + getRadioMenor() +
+                "\nÁrea: "+ getArea()  + "\nPerímetro: "+ getPerimetro();
     }
  
     

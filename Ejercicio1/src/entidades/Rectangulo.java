@@ -63,9 +63,9 @@ public class Rectangulo extends Figura {
       
     @Override
     public String toString() {
-        return super.toString() + "\nLado Mayor: " + getLadoMayor() +
-               "\nLado Menor: " + getLadoMenor() + "\nÁrea: "+ getArea()  + 
-               "\nPerímetro: "+ getPerimetro();
+        return super.toString() + "\nTipo: Cuadrilátero"+ "\nLado Mayor: " +
+                getLadoMayor() + "\nLado Menor: " + getLadoMenor() +
+                "\nÁrea: "+ getArea()  + "\nPerímetro: "+ getPerimetro();
     }
  
     
