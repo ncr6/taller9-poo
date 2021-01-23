@@ -83,9 +83,10 @@ public class Main {
          escala= Float.parseFloat(JOptionPane.showInputDialog(null,
                  "Razón de escalado: ","Registro de datos",3));
          mensaje = "Area Inicial : " + r1.getArea() 
-                 + "\nPerimetro Inicial : " + r1.getPerimetro() 
-                 + "\n\nArea Escalada: "+ r1.areaEscala(escala) +
-                 "\nPerimetro Escalado: " + r1.perimetroEscala(escala);
+                 + "\nPerimetro Inicial : " + r1.getPerimetro();
+         r1.escalar(escala);
+         mensaje += "\n\nArea Escalada: "+ r1.getArea() +
+                 "\nPerimetro Escalado: " + r1.getPerimetro();
          JOptionPane.showMessageDialog(null,  mensaje,"Registro de datos",3);
          JOptionPane.showMessageDialog(null,
                      "La figura ha sido escalada con éxito","Exito",1);

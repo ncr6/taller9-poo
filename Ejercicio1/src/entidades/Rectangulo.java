@@ -50,12 +50,9 @@ public class Rectangulo extends Figura {
         this.ladoMenor = ladoMenor;
     }
 
-     public float areaEscala(float escala){
-       return (getLadoMayor()*escala) * (getLadoMenor()*escala);
-    }
-     
-      public float perimetroEscala(float escala){
-       return 2*(getLadoMayor()*escala + getLadoMenor()*escala);
+     public void escalar(float escala){
+       setLadoMayor(getLadoMayor()*escala);
+       setLadoMenor(getLadoMenor()*escala);
     }
     
     
